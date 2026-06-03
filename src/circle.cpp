@@ -4,7 +4,7 @@
 #include "circle.h"
 
 namespace {
-  constexpr double kPi = 3.14159265358979323846;
+constexpr double kPi = 3.14159265358979323846;
 }
 
 Circle::Circle(double radius) {

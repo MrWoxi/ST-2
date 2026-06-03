@@ -73,7 +73,10 @@ TEST(Pool, custom) {
 }
 
 TEST(Pool, throws) {
-  EXPECT_THROW(calculatePoolCosts(0.0, 1.0, 1000.0, 2000.0), std::invalid_argument);
-  EXPECT_THROW(calculatePoolCosts(3.0, -1.0, 1000.0, 2000.0), std::invalid_argument);
-  EXPECT_THROW(calculatePoolCosts(3.0, 1.0, -100.0, 2000.0), std::invalid_argument);
+  EXPECT_THROW(calculatePoolCosts(0.0, 1.0, 1000.0, 2000.0),
+    std::invalid_argument);
+  EXPECT_THROW(calculatePoolCosts(3.0, -1.0, 1000.0, 2000.0),
+    std::invalid_argument);
+  EXPECT_THROW(calculatePoolCosts(3.0, 1.0, -100.0, 2000.0),
+    std::invalid_argument);
 }
