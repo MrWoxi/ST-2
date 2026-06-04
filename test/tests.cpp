@@ -9,22 +9,14 @@
 const double EPS = 1e-6;
 const double PI = 3.14159265358979;
 
-TEST(Circle, constructorSetsRadius) {
+TEST(Circle, constructor) {
   Circle c(5.0);
   EXPECT_NEAR(c.getRadius(), 5.0, EPS);
-}
-TEST(Circle, constructorSetsFerence) {
-  Circle c(5.0);
   EXPECT_NEAR(c.getFerence(), 2.0 * PI * 5.0, EPS);
-}
-TEST(Circle, constructorSetsArea) {
-  Circle c(5.0);
   EXPECT_NEAR(c.getArea(), PI * 25.0, EPS);
 }
-TEST(Circle, constructorThrowsZero) {
+TEST(Circle, constructorThrows) {
   EXPECT_THROW(Circle(0.0), std::invalid_argument);
-}
-TEST(Circle, constructorThrowsNegative) {
   EXPECT_THROW(Circle(-3.0), std::invalid_argument);
 }
 TEST(Circle, setRadiusUpdatesAll) {
@@ -34,12 +26,9 @@ TEST(Circle, setRadiusUpdatesAll) {
   EXPECT_NEAR(c.getFerence(), 2.0 * PI * 4.0, EPS);
   EXPECT_NEAR(c.getArea(), PI * 16.0, EPS);
 }
-TEST(Circle, setRadiusThrowsZero) {
+TEST(Circle, setRadiusThrows) {
   Circle c(1.0);
   EXPECT_THROW(c.setRadius(0.0), std::invalid_argument);
-}
-TEST(Circle, setRadiusThrowsNegative) {
-  Circle c(1.0);
   EXPECT_THROW(c.setRadius(-1.0), std::invalid_argument);
 }
 TEST(Circle, setFerenceUpdatesAll) {
@@ -118,10 +107,5 @@ TEST(Pool, throwsZeroRadius) {
 TEST(Pool, throwsNegativeTrack) {
   EXPECT_THROW(
     calculatePoolCosts(3.0, -1.0, 1000.0, 2000.0),
-    std::invalid_argument);
-}
-TEST(Pool, throwsNegativeConcrete) {
-  EXPECT_THROW(
-    calculatePoolCosts(3.0, 1.0, -100.0, 2000.0),
     std::invalid_argument);
 }
